@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../config/var/var.dart' as configvar;
+import '../../profile.dart';
 
 class CustomAppBar extends StatelessWidget {
   @override
@@ -9,9 +10,14 @@ class CustomAppBar extends StatelessWidget {
       children: [
         Row(
           children: [
-            CircleAvatar(
-              radius: 26,
-              backgroundImage: NetworkImage(configvar.profile),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
+              child: CircleAvatar(
+                radius: 26,
+                backgroundImage: NetworkImage(configvar.profile),
+              ),
             ),
             const SizedBox(width: 15),
             Text('12 Sept, 2021', style: Theme.of(context).textTheme.bodyText1),
